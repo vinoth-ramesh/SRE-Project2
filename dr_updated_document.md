@@ -1,7 +1,7 @@
 # Infrastructure
 
 ## AWS Zones
-For zone1: us-east-2a, us-east-2b For zone2: us-west-1a,us-west-1c
+For zone1: us-east-2a, us-east-2b, us-east=2c For zone2: us-west-1a,us-west-1c
 
 ## Servers and Clusters
 
@@ -9,6 +9,7 @@ For zone1: us-east-2a, us-east-2b For zone2: us-west-1a,us-west-1c
 | Asset                            | Purpose                                                                                                                                             | Size           | Qty | DR                                                                   |
 |----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------|-----|----------------------------------------------------------------------|
 | i-01779dd7ba4732057              | EC2 instance, EKS cluster node, AMI: amazon-eks-node-1.22-v20230304                                                                                 | t3 medium      | 1   | Yes, has to be replicated. Runs in a single AZ.                      |
+| i-0cceff034032253a40             | EC2 instance, EKS cluster node, AMI: amazon-eks-node-1.22-v20230304                                                                                 | t3 medium      | 1   | Yes, has to be replicated. Runs in a single AZ.                      |
 | Ubuntu Web                       | Web Server with our Flusk application. OS level is our Linux AMI.                                                                                   | t3 micro       | 1   | Yes, has to be replicated (our webserver) Runs in a single AZ.       |
 | udacity-tf-vinoth2               | S3 bucket for the tfstate file. The file stores the current status of the terraform deployment                                                      | S3             | 1   | Yes for storing the tfstate, re-create S3 store, Runs in a single AZ |
 | udacity-tf-vinoth2-west          | S3 bucket for the tfstate file. The file stores the current status of the terraform deployment, but for the US-WEST-1 region.                       | S3             | 1   | Yes for storing the tfstate, re-create S3 store, Runs in a single AZ |
